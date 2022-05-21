@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captcha</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+<body>
+<main>
+    <div id="app">
+            <div v-for="captcha in captchaData" :key="captcha.Md5" style="margin-bottom: 40px">
+                <div style="text-align: center;">
+                    <img :src="'data:image/jpeg;base64,' + captcha.Base64">
+                    <button style="vertical-align: top;" @click="send(captcha.Md5,captcha.Answer)">{{ captcha.Answer }}</button>
+                </div>
+                <div style="text-align: center;">
+                    <button @click="send(captcha.Md5,answer1(captcha.AnswerList))">{{answer1(captcha.AnswerList)}}</button>
+                    <button @click="send(captcha.Md5,answer2(captcha.AnswerList))">{{answer2(captcha.AnswerList)}}</button>
+                    <button @click="send(captcha.Md5,answer3(captcha.AnswerList))">{{answer3(captcha.AnswerList)}}</button>
+                    <button @click="send(captcha.Md5,answer4(captcha.AnswerList))">{{answer4(captcha.AnswerList)}}</button>
+
+                </div>
+            </div>
+    </div>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
